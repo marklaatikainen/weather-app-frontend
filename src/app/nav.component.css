@@ -1,0 +1,38 @@
+ul {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    justify-content: center;
+}
+
+li {
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: white;
+}
+
+li a:hover {
+    color: black;
+}
+
+.left {
+    flex: 2 0 0;
+}
+
+.city {
+    align-items: right;
+}

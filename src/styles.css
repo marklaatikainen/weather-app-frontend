@@ -1,0 +1,33 @@
+#container {
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.frontpageCard {
+    max-width: 20%;
+    margin: 1px;
+    display: inline-flex;
+    height: 350px;
+}
+
+#datadiv {
+    max-width: 20rem;
+}
+
+#locationdiv {
+    float: right;
+    width: 49%;
+    padding: 15px;
+}
+
+agm-map {
+    height: 350px;
+}
+
+.card-header {
+    text-align: center;
+}
