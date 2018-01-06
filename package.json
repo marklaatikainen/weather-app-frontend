@@ -2,6 +2,7 @@
   "name": "weatherapp",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@angular/cdk": "^5.0.2",
     "@angular/cli": "1.6.3",
+    "@angular/compiler-cli": "^5.1.2",
     "@angular/common": "^5.1.2",
     "@angular/compiler": "^5.1.2",
     "@angular/core": "^5.1.2",
@@ -31,8 +33,6 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.3",
-    "@angular/compiler-cli": "^5.1.2",
     "@angular/language-service": "^5.1.2",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.3",
