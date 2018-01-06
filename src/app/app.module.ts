@@ -10,7 +10,6 @@ import {
 } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app.routing.module';
 import { Http, HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http'; 
