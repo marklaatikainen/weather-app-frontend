@@ -1,3 +1,8 @@
+* {
+    list-style: none;
+    text-decoration: none;
+}
+
 #container {
     width: 80%;
     margin: auto;
@@ -11,7 +16,6 @@ h1 {
 .frontpageCard {
     text-decoration: none !important;
     width: 19.5%;
-    max-width: 19.5%;
     margin: 2px;
     display: inline-flex;
     height: 350px;
@@ -20,13 +24,22 @@ h1 {
 }
 
 #datadiv {
-    max-width: 20rem;
+    float: left;
+    width: 48%;
+    height: 440px;
+    overflow: auto;
+}
+
+#datadiv li {
+    text-align: center !important;
+    margin: auto;
+    border-bottom: 1px solid #eee;
 }
 
 #locationdiv {
     float: right;
-    width: 49%;
-    padding: 15px;
+    width: 48%;
+    overflow: auto;
 }
 
 agm-map {
@@ -47,4 +60,28 @@ agm-map {
 
 .unit:hover {
     cursor: pointer;
+}
+
+input.ng-invalid, select.ng-invalid {
+    border: 1px solid red;
+}
+
+input.ng-valid, select.ng-valid {
+    border: 1px solid green;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+    .frontpageCard, #datadiv, #locationdiv {
+        width: 100%;
+        padding: 0;
+        height: auto;
+    }
+
+    agm-map {
+        height: 100vw;
+    }
+
+    #datadiv {
+        text-align: center !important;
+    }
 }

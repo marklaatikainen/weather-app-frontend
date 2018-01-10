@@ -10,33 +10,33 @@ import { CookieService } from 'ngx-cookie-service';
     template: `
         <div>
             <h1> {{ (webService.citydata | async)?.name }} </h1>
-            <div id="locationdiv" class="card border-info mb-3">
-            <div class="card-header">{{ (webService.citydata | async)?.name }}</div>
             
-            <div class="card-body">
-               <agm-map 
-                    [latitude]="lat" 
-                    [longitude]="lon">
-                </agm-map>
-            </div>
-            </div>
-            <div id="datadiv">
-                <div *ngFor="let temp_data of (webService.citydata | async)?.temp_data | reverse" class="card border-dark mb-3">
-                   <div class="card-header">
-                       <p> {{ temp_data.timestamp | date:"HH:mm dd.MM.yyyy" }} </p>
-                   </div>
-                   <div class="card-body">
-                       <p> {{ this.cookieValue == '°C' ? temp_data.value : temp_data.value * 9 / 5 + 32 }}{{ this.cookieValue }} </p>
-                   </div>
+            <div id="datadiv" class="card border-info mb-3">
+            <div class="card-header">Lämpötilahavainnot</div>
+                <div class="card-body">
+                    <li *ngFor="let temp_data of (webService.citydata | async)?.temp_data | reverse">
+                    {{ this.cookieValue == '°C' ? temp_data.value : temp_data.value * 9 / 5 + 32 }}{{ this.cookieValue }} <br /> {{ temp_data.timestamp | date:"dd.MM.yyyy HH:mm" }}
+                    </li>
                 </div>
             </div>
+
+            <div id="locationdiv" class="card border-info mb-3">
+                <div class="card-header">Sääaseman sijainti</div>
+                <div class="card-body">
+                    <agm-map 
+                        [latitude]="lat" 
+                        [longitude]="lon">
+                    </agm-map>
+                </div>
+            </div>
+            
         </div>
   `,
 })
 export class CityDataComponent implements OnInit {
     cookieValue = '';
-    lat: number;
-    lon: number;
+    lat: number = 40.741895;
+    lon: number = -73.989308;
     city: string;
 
     constructor(private cookieService: CookieService, public webService: WebService, private route: ActivatedRoute) { }

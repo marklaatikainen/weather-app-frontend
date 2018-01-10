@@ -26,6 +26,7 @@
     "@angular/platform-browser": "^5.1.3",
     "@angular/platform-browser-dynamic": "^5.1.3",
     "@angular/router": "^5.1.3",
+    "bootstrap": "^4.0.0-beta.3",
     "core-js": "^2.5.3",
     "ngmap": "^1.18.4",
     "ngx-cookie-service": "^1.0.10",

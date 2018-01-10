@@ -6,8 +6,8 @@ import { Subject, Observable } from 'rxjs/Rx'
 
 @Injectable()
 export class WebService {
+//  BASE_URL = 'http://api.markl.fi';
   BASE_URL = 'https://polar-river-59836.herokuapp.com';
-//  BASE_URL = 'http://localhost:3000';
 
   private result = [];
 
@@ -45,6 +45,7 @@ export class WebService {
       postData.add.temperature = (postData.add.unit == 'Celsius') ? postData.add.temperature : Math.round((postData.add.temperature - 32) * 5 / 9);
       let body = JSON.stringify(postData.add);
       var response = await this.http.post(this.BASE_URL, body, options).toPromise();
+      location.replace("/");
     } catch (error) {
       console.log(error);
     }

@@ -12,7 +12,10 @@ import {
   <h1>Lisää säähavainto</h1>
   <form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">
     <fieldset formGroupName="add">
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{
+        'has-danger': myform.controls.add.controls.station.invalid && (myform.controls.add.controls.station.dirty || myform.controls.add.controls.station.touched),
+        'has-success': myform.controls.add.controls.station.valid && (myform.controls.add.controls.station.dirty || myform.controls.add.controls.station.touched)
+      }">
         <label for="citySelect">Valitse havaintoasema</label>
         <select class="form-control" formControlName="station" id="citySelect">
           <option value="">Valitse</option>
@@ -20,7 +23,10 @@ import {
           </option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{
+        'has-danger': myform.controls.add.controls.unit.invalid && (myform.controls.add.controls.unit.dirty || myform.controls.add.controls.unit.touched),
+        'has-success': myform.controls.add.controls.unit.valid && (myform.controls.add.controls.unit.dirty || myform.controls.add.controls.unit.touched)
+      }">
         <label for="scaleSelect">Valitse yksikkö</label>
         <select class="form-control" formControlName="unit" ng-model="unit" id="scaleSelect">
           <option value="">Valitse</option>
@@ -29,8 +35,8 @@ import {
         </select>
       </div>
       <div class="form-group" [ngClass]="{
-        'has-danger': temperature.invalid && (temperature.dirty || temperature.touched),
-        'has-success': temperature.valid && (temperature.dirty || temperature.touched)
+        'has-danger': myform.controls.add.controls.temperature.invalid && (myform.controls.add.controls.temperature.dirty || myform.controls.add.controls.temperature.touched),
+        'has-success': myform.controls.add.controls.temperature.valid && (myform.controls.add.controls.temperature.dirty || myform.controls.add.controls.temperature.touched)
       }">
         <label for="temperature">Lämpötilahavainto</label>
         <input class="form-control" formControlName="temperature" required placeholder="Lämpötila" type="text">
@@ -71,8 +77,8 @@ export class AddObservationComponent implements OnInit {
     this.station = new FormControl('', Validators.required);
     this.unit = new FormControl('', Validators.required);
     this.temperature = new FormControl('', [
-      Validators.required
-      //  ,Validators.pattern("^[\d]*,?[\d]*/")
+      Validators.required,
+      Validators.pattern(/^-?[\d]{1,2}[.,]?[\d]{0,1}$/)
     ]);
   }
 
