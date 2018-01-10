@@ -39,7 +39,7 @@ export class CityDataComponent implements OnInit {
     lon: number;
     city: string;
 
-    constructor(private cookieService: CookieService, private webService: WebService, private route: ActivatedRoute) { }
+    constructor(private cookieService: CookieService, public webService: WebService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.route.params.subscribe((params) => {
