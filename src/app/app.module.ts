@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {
   ReactiveFormsModule,
@@ -29,6 +29,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { MaxPipe } from './pipes/max.pipe';
 import { MinPipe } from './pipes/min.pipe';
 
+enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,7 @@ import { MinPipe } from './pipes/min.pipe';
       apiKey: 'AIzaSyBhyAhyZWZPBCs115U05_hzvRECKEZJzs8'
     })
   ],
-  providers: [WebService, HttpModule, CookieService ],
+  providers: [WebService, HttpModule, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

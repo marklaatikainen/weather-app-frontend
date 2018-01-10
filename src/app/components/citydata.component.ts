@@ -35,13 +35,17 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class CityDataComponent implements OnInit {
     cookieValue = '';
-    lat: number = 60.1697530;
-    lon: number = 24.9490830;
+    lat: number;
+    lon: number;
+    city: string;
 
     constructor(private cookieService: CookieService, private webService: WebService, private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.webService.getCityData(this.route.snapshot.params.city);
-        this.cookieValue = this.cookieService.get('unit');
+        this.route.params.subscribe((params) => {
+            this.city = params.city;
+            this.webService.getCityData(this.city);
+            this.cookieValue = this.cookieService.get('unit');
+        });
     }
 }

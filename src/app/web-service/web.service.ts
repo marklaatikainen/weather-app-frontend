@@ -6,14 +6,15 @@ import { Subject, Observable } from 'rxjs/Rx'
 
 @Injectable()
 export class WebService {
-  BASE_URL = 'https://polar-river-59836.herokuapp.com/api';
+  //  BASE_URL = 'https://polar-river-59836.herokuapp.com/api';
+  BASE_URL = 'http://localhost:3000';
 
   private result = [];
 
 
-  private resultAll = new Subject();  
+  private resultAll = new Subject();
   private resultCity = new Subject();
-    
+
   observations = this.resultAll.asObservable();
   citydata = this.resultCity.asObservable();
 
@@ -27,7 +28,7 @@ export class WebService {
       console.error(error);
     });
   };
-  
+
   getCityData(city) {
     this.http.get(this.BASE_URL + "/" + city).subscribe(res => {
       this.result = res.json();
@@ -37,11 +38,15 @@ export class WebService {
     });
   };
 
-  postObservation(postData) {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify(postData);
-//    console.log(body);
-//    return this.http.post(this.BASE_URL, body, options ).map((res: Response) => res.json());
+  async postObservation(postData) {
+    try {
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      postData.add.temperature = (postData.add.unit == 'Celsius') ? postData.add.temperature : Math.round((postData.add.temperature - 32) * 5 / 9);
+      let body = JSON.stringify(postData.add);
+      var response = await this.http.post(this.BASE_URL, body, options).toPromise();
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

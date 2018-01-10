@@ -27,9 +27,7 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule {
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(){
-    var name = this.route.snapshot.params['city'];
-  }
+  ngOnInit() { }
 }

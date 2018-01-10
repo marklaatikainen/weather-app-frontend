@@ -1,6 +1,7 @@
 #container {
     width: 80%;
     margin: auto;
+    padding-left: 4px;
 }
 
 h1 {
@@ -8,10 +9,14 @@ h1 {
 }
 
 .frontpageCard {
-    max-width: 20%;
-    margin: 1px;
+    text-decoration: none !important;
+    width: 19.5%;
+    max-width: 19.5%;
+    margin: 2px;
     display: inline-flex;
     height: 350px;
+    box-sizing: border-box;
+    color: black;
 }
 
 #datadiv {
@@ -30,4 +35,16 @@ agm-map {
 
 .card-header {
     text-align: center;
+}
+
+.max {
+    color: red;
+}
+
+.min {
+    color: blue;
+}
+
+.unit:hover {
+    cursor: pointer;
 }

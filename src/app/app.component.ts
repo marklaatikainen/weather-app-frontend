@@ -5,7 +5,7 @@ import { NavComponent } from './components/nav.component';
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
   template: `
-    <nav></nav>
+    <navigation></navigation>
     <div id="container">
       <router-outlet></router-outlet>
     </div>
