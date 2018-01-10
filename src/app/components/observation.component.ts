@@ -26,7 +26,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class ObservationComponent implements OnInit {
     cookieValue = '';
 
-    constructor(private cookieService: CookieService, private webService: WebService) { }
+    constructor(private cookieService: CookieService, public webService: WebService) { }
 
     ngOnInit() {
         this.webService.getObservations();
