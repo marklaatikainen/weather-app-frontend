@@ -19,7 +19,6 @@ import {
           <option *ngFor="let station of stations" [value]="station">{{station}}
           </option>
         </select>
-        <pre>Valid? {{ myform.controls.add.controls.station.valid }}</pre>
       </div>
       <div class="form-group">
         <label for="scaleSelect">Valitse yksikkö</label>
@@ -28,7 +27,6 @@ import {
           <option *ngFor="let unit of units" [value]="unit">{{unit}}
           </option>
         </select>
-        <pre>Valid? {{ myform.controls.add.controls.unit.valid }}</pre>
       </div>
       <div class="form-group" [ngClass]="{
         'has-danger': temperature.invalid && (temperature.dirty || temperature.touched),
@@ -36,7 +34,6 @@ import {
       }">
         <label for="temperature">Lämpötilahavainto</label>
         <input class="form-control" formControlName="temperature" required placeholder="Lämpötila" type="text">
-        <pre>Valid? {{ myform.controls.add.controls.temperature.valid }}</pre>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </fieldset>
