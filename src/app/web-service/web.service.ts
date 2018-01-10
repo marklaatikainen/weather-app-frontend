@@ -6,8 +6,8 @@ import { Subject, Observable } from 'rxjs/Rx'
 
 @Injectable()
 export class WebService {
-  //  BASE_URL = 'https://polar-river-59836.herokuapp.com/api';
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://polar-river-59836.herokuapp.com';
+//  BASE_URL = 'http://localhost:3000';
 
   private result = [];
 
