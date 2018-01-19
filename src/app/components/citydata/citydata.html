@@ -1,0 +1,34 @@
+<div>
+    <h1> {{ data.city }} </h1>
+    <div id="datadiv" class="card border-info mb-3">
+        <div class="card-header">Lämpötilahavainnot</div>
+        <div class="card-body">
+            <li>
+                <b>Tämänhetkinen (viimeisin) havainto:
+                    <br />
+                </b> {{ this.cookieValue == '°C' ? data.temp_data[0].value : data.temp_data[0].value * 9 / 5 + 32 }} {{ this.cookieValue
+                }}
+                <br /> {{ data.temp_data[0].timestamp | date:"dd.MM.yyyy HH:mm" }}
+                <br>
+                <br>
+            </li>
+            <li>
+                <b>Edelliset havainnot:</b>
+            </li>
+            <li *ngFor="let temp_data of data.temp_data | reverse | slice:1">
+                {{ this.cookieValue == '°C' ? temp_data.value : temp_data.value * 9 / 5 + 32 }}{{ this.cookieValue }}
+                <br /> {{ temp_data.timestamp | date:"dd.MM.yyyy HH:mm" }}
+            </li>
+        </div>
+    </div>
+
+    <div id="locationdiv" class="card border-info mb-3">
+        <div class="card-header">Havaintopisteen sijainti</div>
+        <div class="card-body">
+            <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lon">
+                <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+
+</div>

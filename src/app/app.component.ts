@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavComponent } from './components/nav.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./assets/app.component.css'],
   template: `
     <navigation></navigation>
     <div id="container">

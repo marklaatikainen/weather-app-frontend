@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CityDataComponent } from './citydata.component';
+import { CityDataComponent } from './citydata/citydata.component';
 
 
 @Component({

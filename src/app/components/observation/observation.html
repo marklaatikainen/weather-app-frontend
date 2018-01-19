@@ -1,0 +1,36 @@
+<div id="loaderDiv" *ngIf="isLoading">
+    <ng4-loading-spinner></ng4-loading-spinner>
+</div>
+
+<div *ngIf='error'>
+    <p>Network Error.</p>
+</div>
+
+<div *ngIf='isEmptyResult()'>
+    <p>No media found.</p>
+</div>
+
+<div *ngIf="dataAvailable()">
+    <a routerLink="{{observation.city}}" class="card border-dark mb-3 frontpageCard" *ngFor="let observation of data; let i = index;">
+        <div class="card-header"> {{observation.city}} </div>
+        <div class="card-body">
+            <div *ngIf="observation.temp_data[observation.temp_data.length -1]; then tempBlock; else elseBlock"></div>
+
+            <ng-template #tempBlock>
+                <b>Viimeisin lämpötila:</b>
+                <p> {{ this.cookieValue == '°C' ? observation.temp_data[observation.temp_data.length -1].value : observation.temp_data[observation.temp_data.length
+                    -1].value * 9 / 5 + 32 }}{{ this.cookieValue }}</p>
+                <b>Havaintoaika:</b>
+                <p> {{observation.temp_data[observation.temp_data.length -1].timestamp | date:"dd.MM.yyyy HH:mm" }}</p>
+                <b>Vuorokauden korkein:</b>
+                <p class="max"> {{ this.cookieValue == '°C' ? (observation.temp_data | max: 'value') : (observation.temp_data | max: 'value')
+                    * 9 / 5 + 32 }}{{ this.cookieValue }}</p>
+                <b>Vuorokauden matalin:</b>
+                <p class="min"> {{ this.cookieValue == '°C' ? (observation.temp_data | min: 'value') : (observation.temp_data | min: 'value')
+                    * 9 / 5 + 32 }}{{ this.cookieValue }}</p>
+            </ng-template>
+            <ng-template #elseBlock>Ei dataa viimeisen
+                <br/> vuorokauden ajalta</ng-template>
+        </div>
+    </a>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ObservationComponent } from './observation.component';
+import { ObservationComponent } from './observation/observation.component';
 
 @Component({
   selector: 'home',

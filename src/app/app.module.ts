@@ -8,22 +8,22 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
-
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { RouterModule } from '@angular/router';
-import {AppRoutingModule} from './app.routing.module';
+import { AppRoutingModule } from './app.routes';
 import { Http, HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './components/nav.component';
-import { AddObservationComponent } from './components/add.component';
-import { WebService } from './web-service/web.service';
+import { NavComponent } from './components/nav/nav.component';
+import { AddObservationComponent } from './components/add/add.component';
+import { WebService } from './services/web.service';
 import { CityComponent } from './components/city.component';
 import { HomeComponent } from './components/home.component';
-import { ObservationComponent } from './components/observation.component';
-import { CityDataComponent } from './components/citydata.component';
+import { ObservationComponent } from './components/observation/observation.component';
+import { CityDataComponent } from './components/citydata/citydata.component';
 
 import { ReversePipe } from './pipes/reverse.pipe';
 import { MaxPipe } from './pipes/max.pipe';
@@ -51,7 +51,8 @@ enableProdMode();
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBhyAhyZWZPBCs115U05_hzvRECKEZJzs8'
-    })
+    }),
+    Ng4LoadingSpinnerModule.forRoot(),
   ],
   providers: [WebService, HttpModule, CookieService],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AddObservationComponent } from './components/add.component';
+import { AddObservationComponent } from './components/add/add.component';
 import { CityComponent } from './components/city.component';
 import { HomeComponent } from './components/home.component';
 
