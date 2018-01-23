@@ -76,6 +76,11 @@ input.ng-valid, select.ng-valid {
     border: 1px solid green;
 }
 
+.center {
+    padding-top: 70px;
+    text-align: center;
+}
+
 @media screen and (max-device-width: 480px) and (orientation: portrait){
     .frontpageCard, #datadiv, #locationdiv {
         width: 100%;

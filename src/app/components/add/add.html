@@ -18,9 +18,8 @@
     }">
             <label for="scaleSelect">Valitse yksikkö</label>
             <select class="form-control" formControlName="unit" ng-model="unit" id="scaleSelect">
-                <option value="">Valitse</option>
-                <option *ngFor="let unit of units" [value]="unit">{{unit}}
-                </option>
+                <option selected value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
             </select>
         </div>
         <div class="form-group" [ngClass]="{

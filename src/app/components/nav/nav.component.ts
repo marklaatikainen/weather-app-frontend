@@ -17,7 +17,7 @@ export class NavComponent implements OnInit {
       this.cookieService.set('unit', '°C');
     }
     this.cookieValue = this.cookieService.get('unit');
-    location.replace("/");
+    location.reload();
   }
 
   constructor(private cookieService: CookieService, private router: Router) {

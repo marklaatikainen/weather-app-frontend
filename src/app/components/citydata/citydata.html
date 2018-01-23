@@ -4,7 +4,7 @@
         <div class="card-header">Lämpötilahavainnot</div>
         <div class="card-body">
             <li>
-                <b>Tämänhetkinen (viimeisin) havainto:
+                <b>Viimeisin havainto:
                     <br />
                 </b> {{ this.cookieValue == '°C' ? data.temp_data[0].value : data.temp_data[0].value * 9 / 5 + 32 }} {{ this.cookieValue
                 }}
