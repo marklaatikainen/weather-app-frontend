@@ -1,5 +1,7 @@
 # Weatherapp
 
-### Ennakkotehtävä. Tehtävänanto löytyy osoitteesta https://github.com/reaktor/kesa-2018
+### EnnakkotehtÃ¤vÃ¤. TehtÃ¤vÃ¤nanto lÃ¶ytyy osoitteesta https://github.com/reaktor/kesa-2018
 
-## valmis ohjelma pyörii osoitteessa http://weatherapp.markl.fi
+## valmis ohjelma pyÃ¶rii osoitteessa http://weatherapp.markl.fi
+
+Backend lÃ¶ytyy tÃ¤stÃ¤ reposta. https://github.com/marklaatikainen/weather-app-backend
