@@ -16,7 +16,7 @@
                 <b>Edelliset havainnot:</b>
             </li>
             <li *ngFor="let temp_data of data.temp_data | reverse | slice:1">
-                {{ this.cookieValue == '°C' ? temp_data.value : temp_data.value * 9 / 5 + 32 }}{{ this.cookieValue }}
+                {{ Math.round(this.cookieValue == '°C' ? temp_data.value : temp_data.value * 9 / 5 + 32) }}{{ this.cookieValue }}
                 <br /> {{ temp_data.timestamp | date:"dd.MM.yyyy HH:mm" }}
             </li>
         </div>

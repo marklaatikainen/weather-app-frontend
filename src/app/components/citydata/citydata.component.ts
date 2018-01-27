@@ -17,6 +17,8 @@ export class CityDataComponent implements OnInit {
     location = '';
     data = [];
 
+    private Math = Math;
+
     constructor(private cookieService: CookieService, public webService: WebService, private route: ActivatedRoute) { }
 
     ngOnInit() {

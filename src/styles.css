@@ -21,6 +21,7 @@ h1 {
     height: 350px;
     box-sizing: border-box;
     color: black;
+    border-radius: 15px;
 }
 
 #datadiv {
@@ -70,10 +71,21 @@ form {
 
 input.ng-invalid, select.ng-invalid {
     border: 1px solid red;
+    box-shadow: inset 0 1px 1px rgba(51, 219, 88, 0.075), 0 0 8px #f12d2d99;
+}
+
+input.ng-pristine, select.ng-pristine {
+    border: 1px solid #999;
+    box-shadow: inset 0 1px 1px rgba(51, 219, 88, 0.075), 0 0 8px #7f857c99;
+}
+
+.error {
+    color: red;
 }
 
 input.ng-valid, select.ng-valid {
     border: 1px solid green;
+    box-shadow: inset 0 1px 1px rgba(51, 219, 88, 0.075), 0 0 8px #57f30f99;
 }
 
 .center {
@@ -81,17 +93,15 @@ input.ng-valid, select.ng-valid {
     text-align: center;
 }
 
-@media screen and (max-device-width: 480px) and (orientation: portrait){
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
     .frontpageCard, #datadiv, #locationdiv {
         width: 100%;
         padding: 0;
         height: auto;
     }
-
     agm-map {
         height: 100vw;
     }
-
     #datadiv {
         text-align: center !important;
     }

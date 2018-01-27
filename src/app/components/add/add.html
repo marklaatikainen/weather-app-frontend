@@ -1,9 +1,10 @@
 <h1>Lisää säähavainto</h1>
 <form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">
     <fieldset formGroupName="add">
-        <div class="form-group" [ngClass]="{
+        <div class="form-group" ng-class="{
       'has-danger': myform.controls.add.controls.station.invalid && (myform.controls.add.controls.station.dirty || myform.controls.add.controls.station.touched),
       'has-success': myform.controls.add.controls.station.valid && (myform.controls.add.controls.station.dirty || myform.controls.add.controls.station.touched)
+      'has-pristine': myform.controls.add.controls.station.pristine
     }">
             <label for="citySelect">Valitse havaintoasema</label>
             <select class="form-control" formControlName="station" id="citySelect">
@@ -11,23 +12,26 @@
                 <option *ngFor="let station of stations" [value]="station">{{station}}
                 </option>
             </select>
+            <small class="error" *ngIf="myform.controls.add.controls.station.invalid && (myform.controls.add.controls.station.dirty || myform.controls.add.controls.station.touched)">Valitse havaintopaikka.</small>
         </div>
-        <div class="form-group" [ngClass]="{
+        <div class="form-group" ng-class="{
       'has-danger': myform.controls.add.controls.unit.invalid && (myform.controls.add.controls.unit.dirty || myform.controls.add.controls.unit.touched),
       'has-success': myform.controls.add.controls.unit.valid && (myform.controls.add.controls.unit.dirty || myform.controls.add.controls.unit.touched)
     }">
-            <label for="scaleSelect">Valitse yksikkö</label>
+            <label for="scaleSelect">Valitse asteikko</label>
             <select class="form-control" formControlName="unit" ng-model="unit" id="scaleSelect">
                 <option selected value="Celsius">Celsius</option>
                 <option value="Fahrenheit">Fahrenheit</option>
             </select>
         </div>
-        <div class="form-group" [ngClass]="{
+        <div class="form-group" ng-class="{
       'has-danger': myform.controls.add.controls.temperature.invalid && (myform.controls.add.controls.temperature.dirty || myform.controls.add.controls.temperature.touched),
-      'has-success': myform.controls.add.controls.temperature.valid && (myform.controls.add.controls.temperature.dirty || myform.controls.add.controls.temperature.touched)
+      'has-success': myform.controls.add.controls.temperature.valid && (myform.controls.add.controls.temperature.dirty || myform.controls.add.controls.temperature.touched),
+      'has-pristine': myform.controls.add.controls.temperature.pristine
     }">
             <label for="temperature">Lämpötilahavainto</label>
             <input class="form-control" formControlName="temperature" required placeholder="Lämpötila" type="text">
+            <small class="error" *ngIf="myform.controls.add.controls.temperature.invalid && (myform.controls.add.controls.temperature.dirty || myform.controls.add.controls.temperature.touched)">Syötä validi lämpötila.</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </fieldset>

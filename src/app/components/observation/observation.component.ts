@@ -18,6 +18,8 @@ export class ObservationComponent implements OnInit {
     private error;
     private data = [];
 
+    private Math = Math;
+    
     constructor(private spinnerService: Ng4LoadingSpinnerService, private cookieService: CookieService, public webService: WebService) {
         this.webService.getObservations().subscribe(res => {
            this.data = res;

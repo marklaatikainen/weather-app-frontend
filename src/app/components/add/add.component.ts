@@ -42,7 +42,9 @@ export class AddObservationComponent implements OnInit {
     this.unit = new FormControl('Celsius', Validators.required);
     this.temperature = new FormControl('', [
       Validators.required,
-      Validators.pattern(/^-?[\d]{1,2}[.,]?[\d]{0,1}$/)
+      this.unit.value == 'Celsius'
+        ? Validators.pattern(/^-?([0-9]|[1-4][0-9]|60)$/) // -60..60
+        : Validators.pattern(/^(-([0-9]|[1-4][0-9]|50)|([0-9]|[1-8][0-9]|9[0-9]|1[0-2][0-9]|130))$/) // -50...130
     ]);
   }
 

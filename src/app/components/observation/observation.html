@@ -18,16 +18,16 @@
 
         <ng-template #tempBlock>
             <b>Viimeisin lämpötila:</b>
-            <p> {{ this.cookieValue == '°C' ? data[i].temp_data[data[i].temp_data.length -1].value : data[i].temp_data[data[i].temp_data.length
-                -1].value * 9 / 5 + 32 }}{{ this.cookieValue }}</p>
+            <p> {{ this.cookieValue == '°C' ? data[i].temp_data[data[i].temp_data.length -1].value : Math.round(data[i].temp_data[data[i].temp_data.length
+                -1].value * 9 / 5 + 32) }}{{ this.cookieValue }}</p>
             <b>Havaintoaika:</b>
             <p> {{data[i].temp_data[data[i].temp_data.length -1].timestamp | date:"dd.MM.yyyy HH:mm" }}</p>
             <b>Vuorokauden korkein:</b>
-            <p class="max"> {{ this.cookieValue == '°C' ? (data[i].temp_data | max: 'value') : (data[i].temp_data | max: 'value') * 9 / 5
-                + 32 }}{{ this.cookieValue }}</p>
+            <p class="max"> {{ this.cookieValue == '°C' ? (data[i].temp_data | max: 'value') : Math.round((data[i].temp_data | max: 'value') * 9 / 5
+                + 32) }}{{ this.cookieValue }}</p>
             <b>Vuorokauden matalin:</b>
-            <p class="min"> {{ this.cookieValue == '°C' ? (data[i].temp_data | min: 'value') : (data[i].temp_data | min: 'value') * 9 / 5
-                + 32 }}{{ this.cookieValue }}</p>
+            <p class="min"> {{ this.cookieValue == '°C' ? (data[i].temp_data | min: 'value') : Math.round((data[i].temp_data | min: 'value') * 9 / 5
+                + 32) }}{{ this.cookieValue }}</p>
         </ng-template>
         <ng-template #elseBlock><p class="center"><i>Ei havaintoja edellisen
             <br/> vuorokauden ajalta</i></p></ng-template>
